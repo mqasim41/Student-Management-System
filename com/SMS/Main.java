@@ -41,7 +41,7 @@ public class Main {
                                     System.out.println("UG Student added sucessfully");
                                 }
 
-                            } catch (StudentManagmentException e) {    // catch exception from addRecord
+                            } catch (OutOfMemoryException e) {    // catch exception from addRecord
                                 System.out.println(e);
                             }
 
@@ -52,7 +52,7 @@ public class Main {
                                 if (returnValue) {
                                     System.out.println("PG Student added successfully");
                                 }
-                            } catch (StudentManagmentException e) {    // catch exception from addRecord
+                            } catch (OutOfMemoryException e) {    // catch exception from addRecord
                                 System.out.println(e);
                             }
                         }
@@ -69,7 +69,7 @@ public class Main {
                         if (returnValue) {
                             System.out.println("Student deleted successfully at CMS ID " + id);
                         }
-                    } catch (StudentManagmentException e) {    // catch exception from deleteStudent
+                    } catch (StudentNotFoundException e) {    // catch exception from deleteStudent
                         System.out.println(e);
                     }
                 } else if (option == 3) {      // search the student
@@ -78,7 +78,7 @@ public class Main {
                         int id = sc.nextInt();  // input the id
                         // match the information based on student id
                         sms.searchStudent(id);
-                    } catch (StudentManagmentException e) {
+                    } catch (StudentNotFoundException e) {
                         System.out.println(e);
                     }
 

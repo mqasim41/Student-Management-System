@@ -1,5 +1,8 @@
 package com.SMS;
+
+
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -90,7 +93,7 @@ public class GUI extends JFrame  implements ActionListener {
                 int cms = Integer.parseInt(c);
                 sms.searchStudent(cms);
                 JOptionPane.showMessageDialog(new JFrame(), "Student Found Successfully");
-            } catch (StudentManagmentException exception) {
+            } catch (StudentNotFoundException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
 
             }
@@ -103,7 +106,7 @@ public class GUI extends JFrame  implements ActionListener {
                 if (returnValue) {
                     JOptionPane.showMessageDialog(new JFrame(), "Student Deleted Successfully");
                 }
-            } catch (StudentManagmentException exception) {
+            } catch (StudentNotFoundException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
 
             }
@@ -120,7 +123,7 @@ public class GUI extends JFrame  implements ActionListener {
 
 
                 }
-            } catch (StudentManagmentException exception) {
+            } catch (OutOfMemoryException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
             }
         } else if (e.getSource() == buttonUG || e.getSource() == buttonPG) {

@@ -8,7 +8,7 @@ public class Student {
         this.CMSID = CMSID;
     }
     public String getName(){return name;}
-    public int getCMSID(){return CMSID;}
+    public int getCmsId(){return CMSID;}
 }
 class UGStudent extends Student{
     private int UGsem;
