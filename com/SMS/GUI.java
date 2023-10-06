@@ -1,8 +1,5 @@
 package com.SMS;
-
-
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +23,6 @@ public class GUI extends JFrame  implements ActionListener {
         // adding the label
         labelProgram = new JLabel("           Which Program you want to access?                    ");
         add(labelProgram);
-
         buttonUG = new JButton("UG");
         buttonPG = new JButton("PG");
         add(buttonUG);
@@ -34,8 +30,7 @@ public class GUI extends JFrame  implements ActionListener {
         labelFunctionality = new JLabel("     Which functionality you want to use?       ");
         add(labelFunctionality);
         labelFunctionality.setVisible(false);
-
-
+        
         // adding the buttons
         buttonAdd = new JButton("Add");
         buttonDelete = new JButton("Delete");
@@ -83,7 +78,7 @@ public class GUI extends JFrame  implements ActionListener {
         gui.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setDefaultLookAndFeelDecorated(true);
 
-    }// END MAIN METHOD
+    } // END MAIN METHOD
 
     // give implementation to the abstract method of ActionListener interface
     public void actionPerformed(ActionEvent e) {
@@ -95,10 +90,9 @@ public class GUI extends JFrame  implements ActionListener {
                 JOptionPane.showMessageDialog(new JFrame(), "Student Found Successfully");
             } catch (StudentNotFoundException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
-
             }
-
-        }if (e.getSource() == enterButton && deleteButtonClicked) {
+        }
+        if (e.getSource() == enterButton && deleteButtonClicked) {
             try {
                 String c = tfCMS.getText();
                 int cms = Integer.parseInt(c);
@@ -108,9 +102,9 @@ public class GUI extends JFrame  implements ActionListener {
                 }
             } catch (StudentNotFoundException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
-
             }
-        }  if (e.getSource() == enterButton && addButtonClicked) {
+        }  
+        if (e.getSource() == enterButton && addButtonClicked) {
             try {
                 String name = tfName.getText();
                 String c = tfCMS.getText();
@@ -120,13 +114,12 @@ public class GUI extends JFrame  implements ActionListener {
                 boolean returnValue = sms.addRecord(name, cms, sem, value);
                 if (returnValue) {
                     JOptionPane.showMessageDialog(new JFrame(), "Student Added Successfully");
-
-
                 }
             } catch (OutOfMemoryException exception) {
                 JOptionPane.showMessageDialog(new JFrame(), exception.toString());
             }
-        } else if (e.getSource() == buttonUG || e.getSource() == buttonPG) {
+        }
+        else if (e.getSource() == buttonUG || e.getSource() == buttonPG) {
             if (e.getSource() == buttonUG) {
                 value = 1;
             } else {
@@ -160,7 +153,4 @@ public class GUI extends JFrame  implements ActionListener {
             searchButtonClicked = true;
         }
     }
-}// end GUI class
-
-
-
+} // end GUI class
