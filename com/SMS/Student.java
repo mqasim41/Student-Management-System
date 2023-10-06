@@ -2,26 +2,26 @@ package com.SMS;
 // blue print for a Student
 public class Student {
     private String name;
-    private int CMSID;
-    Student(String name, int CMSID){
+    private int cmsID;
+    Student(String name, int cmsID){
         this.name = name;
-        this.CMSID = CMSID;
+        this.cmsID = cmsID;
     }
     public String getName(){return name;}
-    public int getCmsId(){return CMSID;}
+    public int getCmsId(){return cmsID;}
 }
 class UGStudent extends Student{
     private int UGsem;
-    UGStudent(String name, int CMSID, int UGsem){
-        super(name, CMSID);
+    UGStudent(String name, int cmsID, int UGsem){
+        super(name, cmsID);
         this.UGsem = UGsem;
     }
     public int getUGsem(){return UGsem;}
 }
 class PGStudent extends Student{
     private int PGsem;
-    PGStudent(String name, int CMSID, int PGsem){
-        super(name, CMSID);
+    PGStudent(String name, int cmsID, int PGsem){
+        super(name, cmsID);
         this.PGsem = PGsem;
     }
     public int getPGsem(){return PGsem;}
