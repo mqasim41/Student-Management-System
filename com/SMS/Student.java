@@ -1,6 +1,6 @@
 package com.SMS;
 
-// Generalized Class for a Student
+// generalized Class for a Student
 public class Student {
     
     private String name;
