@@ -1,5 +1,6 @@
 package com.SMS;
-// blue print for a Student
+
+// Generalized Class for a Student
 public class Student {
     private String name;
     private int cmsID;
@@ -10,6 +11,8 @@ public class Student {
     public String getName(){return name;}
     public int getCmsId(){return cmsID;}
 }
+
+// UG Student
 class UGStudent extends Student{
     private int UGsem;
     UGStudent(String name, int cmsID, int UGsem){
@@ -18,6 +21,8 @@ class UGStudent extends Student{
     }
     public int getUGsem(){return UGsem;}
 }
+
+// PG Student
 class PGStudent extends Student{
     private int PGsem;
     PGStudent(String name, int cmsID, int PGsem){
