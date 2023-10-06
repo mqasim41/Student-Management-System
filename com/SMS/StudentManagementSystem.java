@@ -1,6 +1,6 @@
 package com.SMS;
 import java.io.FileNotFoundException;
-import java.util.Formatter; // formatter class allows us to read and write in the file
+import java.util.Formatter; 
 import java.io.File;
 import java.util.Scanner;
 
@@ -13,17 +13,15 @@ public class StudentManagementSystem {
     final int NUMBER_STUDENTS = 10;
     private Student arrayOfStudents[];  
 
-    
     StudentManagementSystem(){
-        
         arrayOfStudents = new Student[NUMBER_STUDENTS];
         try{
             this.file = new Formatter("file.txt");
         } catch(FileNotFoundException exception){
             System.err.println(exception);
         }
-
     }
+    
     // add the student to record and throw exception if enough space not available
     public boolean addRecord(String name, int cmsId, int semNumber, int studentType) throws OutOfMemoryException{
         final int UG_TYPE_STUDENT_ID = 1;
@@ -31,18 +29,18 @@ public class StudentManagementSystem {
         boolean studentAdded = true; 
         if(numberOfStudents >= 10){
             throw new OutOfMemoryException("No More memory available");
-        }else{
-           
-            if(studentType == UG_TYPE_STUDENT_ID){
+        } else {
+            if (studentType == UG_TYPE_STUDENT_ID){
                 arrayOfStudents[numberOfStudents] = new UGStudent(name, cmsId, semNumber);
                 numberOfStudents += 1;
-            }else if (studentType == PG_TYPE_STUDENT_ID){
+            } else if (studentType == PG_TYPE_STUDENT_ID){
                 arrayOfStudents[numberOfStudents] = new PGStudent(name, cmsId, semNumber);
                 numberOfStudents += 1;
             }
         }
         return studentAdded;    
     }
+    
     // delete the student from record and throw exception if the student does not exist
     public boolean deleteStudent(int cmsId) throws StudentNotFoundException{
         boolean studentDeleted = false;
@@ -58,7 +56,7 @@ public class StudentManagementSystem {
                     break;
                 }
             }
-        }if (!studentDeleted){    
+        } if (!studentDeleted){    
             throw new StudentNotFoundException("Student Not Found");
         }
         return studentDeleted;
@@ -76,12 +74,12 @@ public class StudentManagementSystem {
                     break;
                 }
             }
-        }if(!studentFound){ // if student not found
+        } if (!studentFound){ // if student not found
             throw new StudentNotFoundException("Student not Found ");
         }
     }
 
-    /** methods to read and write in the file */
+    // methods to read and write in the file
     public void writeToFile(){
         for (int studentNumber = 0; studentNumber < arrayOfStudents.length; studentNumber++) {
             if (arrayOfStudents[studentNumber] == null) {
@@ -92,6 +90,7 @@ public class StudentManagementSystem {
         }
         file.close();   
     }
+
     public void readFromFile(){
         try {
             sc = new Scanner(new File("file.txt"));
