@@ -12,7 +12,11 @@ public class StudentManagementSystem {
     static int numberOfStudents = 0; 
     final int NUMBER_STUDENTS = 10;
     private Student arrayOfStudents[];  
-
+    /**
+     * Constructor of StudentManagementSystem class. Initialises array of Student objects.
+     * Checks for existence of text file for storage.
+     * 
+     */
     StudentManagementSystem(){
         arrayOfStudents = new Student[NUMBER_STUDENTS];
         try{
@@ -22,7 +26,21 @@ public class StudentManagementSystem {
         }
     }
     
-    // add the student to record and throw exception if enough space not available
+    /**
+     * Add a student to the student record.
+     * 
+     * @param name
+     *            Student name. Does not need to be unique.
+     * @param cmsId
+     *            Unique ID for identification.
+     * @param semNumber
+     *            Semester number which student is currently in.
+     * @param studentType
+     *            Student can be of two types. studentType = 2 means PostGraduate (PG)
+     *            and studentType = 1 means UnderGraduate (UG).
+     * @return Boolean which indicates whether a student was successfully added or not.
+     * @throws OutOfMemoryException
+     */
     public boolean addRecord(String name, int cmsId, int semNumber, int studentType) throws OutOfMemoryException{
         final int UG_TYPE_STUDENT_ID = 1;
         final int PG_TYPE_STUDENT_ID = 2;
@@ -41,7 +59,14 @@ public class StudentManagementSystem {
         return studentAdded;    
     }
     
-    // delete the student from record and throw exception if the student does not exist
+    /**
+     * Delete a student from the student record.
+     * 
+     * @param cmsId
+     *            Unique ID for identification.
+     * @return Boolean which indicates whether a student was successfully deleted or not.
+     * @throws StudentNotFoundException
+     */
     public boolean deleteStudent(int cmsId) throws StudentNotFoundException{
         boolean studentDeleted = false;
         for(int studentNumber = 0; studentNumber < arrayOfStudents.length; studentNumber++){
@@ -62,7 +87,13 @@ public class StudentManagementSystem {
         return studentDeleted;
     }
 
-    // Search for student details and throw exception if student not found
+    /**
+     * Check if a student exists in the student record. Throw an exception otherwise.
+     * 
+     * @param cmsId
+     *            Unique ID for identification.
+     * @throws StudentNotFoundException
+     */
     public void searchStudent(int cmsId) throws StudentNotFoundException{
         boolean studentFound = false;
         
@@ -79,7 +110,9 @@ public class StudentManagementSystem {
         }
     }
 
-    // methods to read and write in the file
+    /**
+     * Write a student and their ID to a text file.
+     */
     public void writeToFile(){
         for (int studentNumber = 0; studentNumber < arrayOfStudents.length; studentNumber++) {
             if (arrayOfStudents[studentNumber] == null) {
@@ -90,7 +123,10 @@ public class StudentManagementSystem {
         }
         file.close();   
     }
-
+    /**
+     * Read from a text file and print the contents to the console.
+     * 
+     */
     public void readFromFile(){
         try {
             sc = new Scanner(new File("file.txt"));

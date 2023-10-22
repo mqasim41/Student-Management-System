@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 // main class to check the functionality of Student Management System
 public class Main {
+     /**
+     * The main method initiates the Student Management System (SMS) and provides a command-line interface
+     * for users to interact with the system.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String ... args){
         // instantiate the Student Management system class that initializes the array of length 10
         StudentManagementSystem sms = new StudentManagementSystem();
