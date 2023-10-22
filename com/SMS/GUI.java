@@ -16,7 +16,10 @@ public class GUI extends JFrame  implements ActionListener {
     boolean deleteButtonClicked = false;
     boolean searchButtonClicked = false;
 
-    // constructor
+    /**
+     * Constructs a new GUI object for the Student Management System (SMS).
+     * Initializes the user interface elements and sets up event listeners.
+     */
     public GUI() {
         sms = new StudentManagementSystem();
         setLayout(new FlowLayout());
@@ -69,18 +72,32 @@ public class GUI extends JFrame  implements ActionListener {
         enterButton.addActionListener(this);
     }
 
-    // main method with proper signature that begins the execution of program
+    /**
+     * Entry point of the program. Creates and displays the GUI.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String... args) {
         GUI gui = new GUI();
         gui.setSize(320, 320);
         gui.setVisible(true);
         gui.setResizable(false);
         gui.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setDefaultLookAndFeelDecorated(true);
+        setDefaultLookAndFeelDecorated(
+            
+            
+            
+            
+            
+            true);
 
     } // END MAIN METHOD
 
-    // give implementation to the abstract method of ActionListener interface
+    /**
+     * Handles button click events and performs actions based on the event source.
+     *
+     * @param e ActionEvent representing the button click.
+     */
     public void actionPerformed(ActionEvent e) {
          if (e.getSource() == enterButton && searchButtonClicked) {
             try {
